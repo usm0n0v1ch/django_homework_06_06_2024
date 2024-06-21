@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url 'product_add' %}">Добавить продукт</a>
+{% for product in products %}
+
+
+<p>Наименование продукта - {{ product.name }}---Цена-{{ product.price }} сум---Категория - {{ product.category.name }}
+    ---Магазин - {{ product.store.name }}</p>
+<p><a href="{% url 'product_edit' pk=product.pk %}">Редактировать</a></p>
+<p><a href=" {% url 'product_delete' pk=product.pk %}">Удалить</a></p>
+{% endfor %}
+<a href="{% url 'categories' %}">Назад</a>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск магазинов</title>
+</head>
+<body>
+
+<h1>Поиск магазинов</h1>
+
+<form method="GET" action="{% url 'shop_search' %}">
+    <input type="text" name="q" placeholder="Введите название магазина">
+    <button type="submit">Поиск</button>
+</form>
+
+{% if shops %}
+    <h2>Результаты поиска:</h2>
+    <ul>
+        {% for shop in shops %}
+            <li>
+                <h3>{{ shop.name }}</h3>
+                <p>Адрес: {{ shop.address }}</p>
+                <p><a href="{% url 'store_detail' pk=shop.pk %}">Подробнее</a></p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Ничего не найдено.</p>
+{% endif %}
+
+<a href="{% url 'home' %}">Назад</a>
+
+</body>
+</html>

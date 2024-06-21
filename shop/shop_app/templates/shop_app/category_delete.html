@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Удаление категории</title>
+</head>
+<body>
+<h1>Удаление категории</h1>
+    <p>Удалить категорию- "{{ category.name }}"?</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+<a href="{% url 'categories' %}">Назад</a>
+</body>
+</html>

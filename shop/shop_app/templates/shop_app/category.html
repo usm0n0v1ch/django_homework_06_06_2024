@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Категории</title>
+</head>
+<body>
+<a href="{% url 'products' %}">Продукты</a>
+<a href="{% url 'category_add' %}">Добавить категории</a>
+{% for category in categories %}
+<div>
+    <div>
+        {{ category.name }}---{{ category.description }}
+    </div>
+    <div><a href=" {% url 'category_edit' pk=category.pk %}">Редактировать</a></div>
+    <div><a href="{% url 'category_delete' pk=category.pk %}">Удалить</a></div>
+</div>
+{% endfor %}
+<a href="{% url 'home' %}">Назад</a>
+</body>
+</html>

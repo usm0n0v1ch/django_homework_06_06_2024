@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+</head>
+<body>
+
+<div><a href="{% url 'categories' %}">Категории</a></div>
+
+<h1>Магазины</h1>
+<h1>Поиск магазинов</h1>
+
+<form method="GET" action="{% url 'shop_search' %}">
+    <input type="text" name="q" placeholder="Введите название магазина">
+    <button type="submit">Поиск</button>
+</form>
+<a href=" {% url 'add_shop' %}">Добавить магазин</a>
+
+
+{% for shop in shops %}
+<p>{{ shop.name }}--{{ shop.address }}</p>
+<p><a href="{% url 'shop_edit' pk=shop.pk %}">Редактировать</a></p>
+<p><a href="{% url 'shop_delete' pk=shop.pk %}">Удалить</a></p>
+{% endfor %}
+</body>
+</html>
